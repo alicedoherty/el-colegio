@@ -1,0 +1,164 @@
+Widget masterPageHome, masterPageWinners, masterPageLosers;
+
+void drawMasterList(ArrayList<Line> stockData){
+  // background color
+  pushMatrix();
+  background(242,242,242);
+  
+  //scrollBar(mouseY);
+  float newYValue = scrollBar.scrollValue();  
+  translate (0, newYValue);
+  drawTitle();
+  drawStockNames(stockData);
+  drawOpenPrice(stockData);
+  drawClosePrice(stockData);
+  drawChangeOverTime(stockData);
+  drawGainersButtonMaster();
+  drawLosersButtonMaster();
+  drawHomePageButtonMaster();
+  popMatrix();
+}
+
+void drawTitle() {
+  // title
+  strokeWeight(5);
+  stroke(64);
+  fill(255);
+  rect(295, 35, 427, 75);
+  fill(0);
+  textFont(font1);
+  textSize(36);
+  text("LIST OF STOCKS", 360, 85);
+}
+void drawStockNames(ArrayList<Line> stockData) {
+  // names of stonks
+  for (int i = 0; i < stockData.size(); i++) {
+    // use yPlace to choose where to put names of stonks
+    int yPlace = (i * 50) + 200;
+    strokeWeight(1);
+    stroke(255);
+    fill(137, 141, 50);
+    rect(50, yPlace, 200, 50);
+    fill(0);
+    textFont(font2);
+    textSize(18);
+    text(stockData.get(i).getTicker(), 120, yPlace + 30);
+  }
+}
+
+
+void drawOpenPrice(ArrayList<Line> stockData) {
+    strokeWeight(1);
+    stroke(255);
+    fill(197,207,210);
+    rect(295, 145, 200, 50);
+    fill(255);
+    textFont(font2);
+    textSize(18);
+    text("Open Price", 345, 175);
+    // repetitve
+    for (int i = 0; i < stockData.size(); i++) {
+      // use yPlace to choose where to put names of stonks
+      int yPlace = (i * 50) + 200;
+      strokeWeight(1);
+      stroke(255);
+      fill(197,207,210);
+      rect(295, yPlace, 200, 50);
+      fill(255);
+      textFont(font2);
+      textSize(18);
+      text(stockData.get(i).getOpenPrice(), 365, yPlace + 30);
+    }
+}
+
+void drawClosePrice(ArrayList<Line> stockData) {
+  
+    strokeWeight(1);
+    stroke(255);
+    fill(197,207,210);
+    rect(495, 145, 200, 50);
+    fill(255);
+    textFont(font2);
+    textSize(18);
+    text("Close Price", 545, 175);
+    // repetitve
+    for (int i = 0; i < stockData.size(); i++) {
+      // use yPlace to choose where to put names of stonks
+      int yPlace = (i * 50) + 200;
+      strokeWeight(1);
+      stroke(255);
+      fill(197,207,210);
+      rect(495, yPlace, 200, 50);
+      fill(255);
+      textFont(font2);
+      textSize(18);
+      text(stockData.get(i).getClosePrice(), 565, yPlace + 30);
+    }
+}
+
+void drawChangeOverTime(ArrayList<Line> stockData) {
+  // Open Price
+    strokeWeight(1);
+    stroke(255);
+    fill(197,207,210);
+    rect(695, 145, 200, 50);
+    fill(255);
+    textFont(font2);
+    textSize(18);
+    text("Change Over Time", 715, 175);
+    // repetitve
+    for (int i = 0; i < stockData.size(); i++) {
+      // use yPlace to choose where to put names of stonks
+      int yPlace = (i * 50) + 200;
+      strokeWeight(1);
+      stroke(255);
+      fill(197,207,210);
+      rect(695, yPlace, 200, 50);
+      fill(255);
+      textFont(font2);
+      textSize(18);
+      float openPrice = stockData.get(i).getOpenPrice();
+      float closePrice = stockData.get(i).getClosePrice();
+      float changeOverTime = (closePrice / openPrice * 100)-100;
+      text(changeOverTime + "%", 765, yPlace + 30);
+    }
+  
+}
+
+void drawGainersButtonMaster() {
+  // gainers
+  strokeWeight(1);
+  stroke(255);
+  fill(78, 172, 91);
+  ellipse(85, 77, 87, 37);
+  fill(255);
+  textSize(12);
+  text("Winners", 62, 82);
+  masterPageWinners = new Widget(42, 58, 87, 37, 2);
+}
+
+void drawLosersButtonMaster() {
+  // losers
+  strokeWeight(1);
+  stroke(255);
+  fill(235, 50, 34);
+  ellipse(200, 77, 87, 37);
+  fill(255);
+  textFont(font2);
+  textSize(12);
+  text("Losers", 180, 82);
+  masterPageLosers = new Widget(155, 58, 87, 37, 2);
+}
+
+void drawHomePageButtonMaster() {
+  // link to master list
+  strokeWeight(1);
+  stroke(255);
+  fill(0,60,113);
+  rect(765, 45, 200, 50);
+  fill(255);
+  textFont(font1);
+  textSize(18);
+  text("HedgeOverFlow", 795, 78);
+  masterPageHome = new Widget(765, 45, 200, 50, 2);
+}

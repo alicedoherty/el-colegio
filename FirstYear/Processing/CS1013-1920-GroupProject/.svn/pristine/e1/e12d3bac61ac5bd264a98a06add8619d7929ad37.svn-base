@@ -1,0 +1,71 @@
+ArrayList<Line> priceData;
+PFont font1;
+PFont font2;
+Scroll_Bar scrollBar;
+int screenNumber = 5;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+SimpleDateFormat dateFormat;
+//ArrayList<Line> potData;
+
+void setup() {
+  size(1024,580);
+  font1 = createFont("GillSans-36.vlw",36);
+  font2 = createFont("GillSans-18.vlw",18);
+  scrollBar = new Scroll_Bar();
+  priceData = new ArrayList<Line>();
+  potData = new ArrayList<Line>();
+  readStockInfo("stocks.csv");
+  readPriceData("daily_prices1k.csv");
+  println("there are " + priceData.size() + " price points");
+  println(priceData.get(250).getTicker());
+}
+
+void draw() {
+  switch(screenNumber) {
+    case 1:
+      drawHomePage();
+      break;
+    case 2:
+      drawMasterList(priceData);
+      scrollBar.display();
+      scrollBar.update();
+      break;
+    case 3:
+      drawGainers();
+      break;
+    case 4:
+      drawBiggestLosers();
+      break;
+    case 5:
+      drawPOT(priceData);
+      break;
+    default:
+      drawHomePage();
+  }
+}
+void mousePressed() {
+  scrollBar.mousePressedBar();
+}
+ 
+void mouseReleased() {
+  scrollBar.mouseReleasedBar();
+}
+
+void readStockInfo(String fileName) {
+  String[] lines = loadStrings(fileName);
+  println("there are " + lines.length + " stocks");
+}
+
+
+void readPriceData(String fileName) {
+  String[] lines = loadStrings(fileName);
+  for (int i = 0 ; i < lines.length; i++) {
+    priceData.add(new Line(lines[i]));
+    //println(lines[i]);
+    //text(lines[i], 10, i*15);
+  }
+  println("there are " + lines.length + " lines");
+}

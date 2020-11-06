@@ -1,0 +1,106 @@
+final int SCREEN_X = 1024;
+final int SCREEN_Y = 580;
+final color cyan = color(139,255,248);  // cyan
+final float heightOfCanvas = 3000;
+
+String ticker = "APPL";
+float openPrice = 10;
+float closePrice = 30;
+float percentageChange = ((closePrice - openPrice) / openPrice) * 100;
+PFont myFont;
+int yPos = 100;      // yPosition of each line of data, i.e. each stock
+int stockY = 80;     // yPosition of each button around each stock
+color pink = color(237,168,222); // pink
+color yellow = color(245,252,54);    // yellow
+color green = color(54,252,124);      // green
+int i=0;
+
+
+Scroll_Bar scrollBar;
+int[] array;
+
+void settings() {
+  size(SCREEN_X,SCREEN_Y);
+}
+
+void setup() {
+  background(255);
+  scrollBar = new Scroll_Bar();
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80); 
+  array = new int[20];
+}
+
+void draw() {
+  background(255);
+  drawHighestPercentageChange();
+  scrollBar.display();
+  scrollBar.update();
+}
+
+void drawHeadings() {
+  textFont(myFont);
+  fill(pink);
+  
+  // Headings
+  text("Highest Percentage Change",(SCREEN_X/2)-100,30);
+  text("Ticker",50,60);
+  text("Open Price",275,60);
+  text("Close Price",425,60);
+  text("Percentage Change",575,60);
+}
+
+void drawHighestPercentageChange() {
+  pushMatrix();
+  float newYValue = scrollBar.scrollValue();  
+  translate (0, newYValue);
+ 
+  drawHeadings();
+  drawButtons();
+  drawLabels();
+  String testLabel = "a";
+  yPos=100;
+  stockY=80;
+  openPrice=10;
+  closePrice=30;
+  percentageChange=((closePrice - openPrice) / openPrice) * 100;;
+      for(int i=0; i<array.length; i++) {    // this loop keeps repeating itself for some reason???
+       fill(green);
+       rect(40,stockY,75,25);    // creates button for stocks
+       fill(0);
+       text(testLabel,50,yPos);
+       text(""+openPrice,275,yPos);
+       text(""+closePrice,425,yPos);
+       text(""+percentageChange,575,yPos);    
+       yPos+=50;
+       stockY+=50;
+       testLabel+=",a";
+       openPrice+=10;
+       closePrice+=5;
+       percentageChange+=15;
+     }
+     popMatrix();
+}
+
+void drawButtons() {
+  fill(yellow);
+  rect((SCREEN_X-265),(SCREEN_Y-410),150,50);      // homePage button
+  rect((SCREEN_X-265),(SCREEN_Y-260),150,50);     // masterList button
+  rect((SCREEN_X-265),(SCREEN_Y-110),150,50);     // lowest percentage change button
+}
+
+void drawLabels() {
+// Below labels the 3 buttons:
+  fill(0);
+  text("Home Page",(SCREEN_X-250),(SCREEN_Y-380));
+  text("Master List",(SCREEN_X-250),(SCREEN_Y-230));
+  text("Lowest Change",(SCREEN_X-250),(SCREEN_Y-80));  
+} 
+
+void mousePressed() {
+  scrollBar.mousePressedBar();
+}
+ 
+void mouseReleased() {
+  scrollBar.mouseReleasedBar();
+}

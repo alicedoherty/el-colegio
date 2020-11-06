@@ -1,0 +1,158 @@
+final int SCREEN_X = 1024;
+final int SCREEN_Y = 580;
+
+int[] array;
+
+LowestPercentageChange lowestScreen;    // just to check if LowestChangeScreen works
+String ticker = "APPL";
+float openPrice = 10;
+float closePrice = 30;
+float percentageChange = ((closePrice - openPrice) / openPrice) * 100;
+PFont myFont;
+int yPos = 100;      // yPosition of each line of data, i.e. each stock
+int stockY = 80;     // yPosition of each button around each stock
+color pink = color(237,168,222); // pink
+color yellow = color(245,252,54);    // yellow
+color green = color(54,252,124);      // green
+// boolean drawHighestScreen = false;    // just to test if LowestChangeScreen works
+int i=0;
+
+void settings () {
+  size(SCREEN_X, SCREEN_Y);  
+}
+
+void setup() {
+  background(255);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  lowestScreen = new LowestPercentageChange();  // just to check if LowestChangeScreen works 
+  array = new int[10];
+}
+
+void drawHeadings() {
+  textFont(myFont);
+  fill(pink);
+  
+  // Headings
+  text("Highest Percentage Change",(SCREEN_X/2)-100,30);
+  text("Ticker",50,60);
+  text("Open Price",275,60);
+  text("Close Price",425,60);
+  text("Percentage Change",575,60);
+}
+
+void drawHighestPercentageChange() {
+  drawHeadings();
+  drawButtons();
+  drawLabels();
+  String testLabel = "a";
+      for(int i=0; i<array.length; i++) {    // this loop keeps repeating itself for some reason???
+       fill(green);
+       rect(40,stockY,75,25);    // creates button for stocks
+       fill(0);
+       text(testLabel,50,yPos);
+       text(""+openPrice,275,yPos);
+       text(""+closePrice,425,yPos);
+       text(""+percentageChange,575,yPos);    
+       yPos+=50;
+       stockY+=50;
+       testLabel+=",a";
+       openPrice+=10;
+       closePrice+=5;
+       percentageChange+=15;
+       noLoop();
+     }  
+}
+
+void drawButtons() {
+  fill(yellow);
+  rect((SCREEN_X-265),(SCREEN_Y-410),150,50);      // homePage button
+  rect((SCREEN_X-265),(SCREEN_Y-260),150,50);     // masterList button
+  rect((SCREEN_X-265),(SCREEN_Y-110),150,50);     // lowest percentage change button
+}
+
+void drawLabels() {
+// Below labels the 3 buttons:
+  fill(0);
+  text("Home Page",(SCREEN_X-250),(SCREEN_Y-380));
+  text("Master List",(SCREEN_X-250),(SCREEN_Y-230));
+  text("Lowest Change",(SCREEN_X-250),(SCREEN_Y-80));  
+}
+
+void draw() {
+  //if(drawHighestScreen == true) {    // testing if LowestChangeScreen works
+  //textFont(myFont);
+  //fill(pink);
+  
+  //// Headings
+  //text("Ticker",50,50);
+  //text("Open Price",175,50);
+  //text("Close Price",300,50);
+  //text("Percentage Change",425,50);
+  
+  //fill(green);
+  //rect(40,80,75,25);    // creates button for stock
+  
+  //fill(0);
+  //text(""+ticker,50,100);
+  //text(""+openPrice,175,100);
+  //text(""+closePrice,300,100);
+  //text(""+percentageChange,425,100);
+  
+  // define method with parameter of the array???
+  
+  //String testLabel = "a";
+  //    for(int i=0; i<array.length; i++) {    // this loop keeps repeating itself for some reason???
+  //     fill(green);
+  //     rect(40,stockY,75,25);    // creates button for stocks
+  //     fill(0);
+  //     text(testLabel,50,yPos);
+  //     text(""+openPrice,175,yPos);
+  //     text(""+closePrice,300,yPos);
+  //     text(""+percentageChange,425,yPos);    
+  //     yPos+=50;
+  //     stockY+=50;
+  //     testLabel+=",a";
+  //     openPrice+=10;
+  //     closePrice+=5;
+  //     percentageChange+=15;
+  //     noLoop();
+  //   }
+  
+  // When each stock is an object with its attributes: ticker, openPrice, closePrice and percentageChange set.
+  //   for(int i=0; i<array.length; i++) {
+  //     fill(255);
+  //     text(""+array[i].ticker,50,y);
+  //     text(""+array[i].openPrice,175,y);
+  //     text(""+array[i].closePrice,300,y);
+  //     text(""+array[i].percentageChange,425,y);    
+  //     y+=50;
+  //     fill(green);
+  //     rect(40,stockY,75,25);    // creates button for stocks
+  //     stockY+=50;
+  //   }
+  
+  // Below draws 3 buttons:
+  //fill(yellow);
+  //rect((SCREEN_X-265),(SCREEN_Y-410),150,50);      // homePage button
+  //rect((SCREEN_X-265),(SCREEN_Y-260),150,50);     // masterList button
+  //rect((SCREEN_X-265),(SCREEN_Y-110),150,50);     // lowest percentage change button
+  
+  //// Below labels the 3 buttons:
+  //fill(0);
+  //text("Home Page",(SCREEN_X-250),(SCREEN_Y-380));
+  //text("Master List",(SCREEN_X-250),(SCREEN_Y-230));
+  //text("Lowest Change",(SCREEN_X-250),(SCREEN_Y-80));
+
+//drawHeadings();
+//drawButtons();
+//drawLabels();
+drawHighestPercentageChange();
+}
+  
+  // Below: Trying to test other Screen, only change is "Lowest Change" button is
+  // replaced with "Highest Change" button.
+  //else {
+  //  lowestScreen.draw();  
+  //}
+  

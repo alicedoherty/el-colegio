@@ -1,0 +1,62 @@
+
+int originXPos=100;
+int originYPos=SCREEN_Y-100;
+int x2=SCREEN_X-150;
+int y2=50;
+color babyPink = color(252,199,199); // very light pink
+int x = originXPos;
+int y = originYPos;
+
+ArrayList<Line> potData = new ArrayList<Line>();
+
+//potData = new ArrayList<Line>();
+ 
+
+void drawPOT(ArrayList<Line> priceData) {
+  potData = queryPriceOverTime(priceData, "PEZ");    // 
+  background(255);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  array = new int[]{50,110,210,160,35,90,12,100,158,60,150,26,0,35,389,0};
+  drawPotButtons();
+  drawPotAxis();
+  drawPotLabels();
+  drawPotData(potData);
+}
+
+void drawPotAxis(){
+  //int x = originXPos;
+  //int y = originYPos;
+  line(originXPos,originYPos,originXPos,y2);  // top of y axis, origin
+  stroke(0);
+  line(originXPos,originYPos,x2,originYPos);        // origin, end of x-axis
+  stroke(0);
+}
+
+void drawPotButtons() {
+  fill(pink);
+  rect((x2+10),(SCREEN_Y/2),130,50);      // homePage button
+  rect((x2+10),((SCREEN_Y/2)+55),130,50);     // masterList button  
+}
+
+void drawPotLabels() {
+  fill(0);
+  textSize(20);
+  text("Home Page",(x2+25),(SCREEN_Y/2+35));
+  text("Master List",(x2+25),((SCREEN_Y/2)+35)+50);
+  text("Price Over Time (POT)",(SCREEN_X/2)-100,30);  // title of graph
+  text("Price",5,(SCREEN_Y/2));    // y-axis label
+  text("($)",10,(SCREEN_Y/2)+25);
+  text("Year",((SCREEN_X/2)-100),(SCREEN_Y)-10);  // x-axis label
+}
+
+void drawPotData(ArrayList<Line> priceOverTimeData) {
+  for(int i=0; i<priceOverTimeData.size()-1; i++) {
+       int j =i+1;
+       line(x,(originYPos-(priceOverTimeData.get(i).getClosePrice())),x+25,(originYPos-(priceOverTimeData.get(j).getClosePrice())));
+       stroke(0);   // this colours the line.
+       x+=25;
+       System.out.println(""+priceOverTimeData.get(i).getClosePrice());
+       noLoop();
+     }  
+}

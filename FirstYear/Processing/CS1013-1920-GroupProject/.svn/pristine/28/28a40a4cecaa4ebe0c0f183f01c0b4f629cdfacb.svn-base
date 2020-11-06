@@ -1,0 +1,3 @@
+final color CYAN = color(139,255,248);  // cyan
+final int SCREEN_X = 1024;
+final int SCREEN_Y = 580;

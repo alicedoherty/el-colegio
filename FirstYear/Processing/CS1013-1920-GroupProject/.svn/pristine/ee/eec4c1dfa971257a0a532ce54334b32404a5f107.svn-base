@@ -1,0 +1,111 @@
+class Widget {
+  int x;
+  int y; 
+  int width; 
+  int height; 
+  int event; 
+  int currentScreen;
+  int newScreen;
+  String deltaTicker;
+  boolean strokeOn = false;
+
+  Widget(int x,int y, int width, int height, int currentScreen)           
+   {
+    this.x=x; 
+    this.y=y;
+    this.width = width; 
+    this.height= height; 
+    this.currentScreen = currentScreen;
+  }
+  Widget(int x,int y, int width, int height, int currentScreen, String deltaTicker) {
+    this.x=x; 
+    this.y=y;
+    this.width = width; 
+    this.height= height; 
+    this.currentScreen = currentScreen;
+    this.deltaTicker=deltaTicker;
+  }
+    
+    
+void draw(){
+  if (strokeOn) stroke(255);
+  else noStroke();
+ 
+}
+
+void changeToNewPage(int mX, int mY, int deltaScreen) {
+  if(mX>x && mX < x+width && mY >y && mY <y+height) {
+    screenNumber = deltaScreen;
+  }
+  //scree currentScreen;
+}
+void changeToNewPot(int mX, int mY, int deltaScreen, String deltaTicker) {
+  if(mX>x && mX < x+width && mY >y && mY <y+height) {
+    screenNumber = deltaScreen;
+    tickerName = deltaTicker;
+  }
+  //scree currentScreen;
+}
+
+
+void changeToNewPot(int mX, int mY, int deltaScreen) {
+  if(mX>x && mX < x+width && mY >y && mY <y+height) {
+    screenNumber = deltaScreen;
+    tickerName = deltaTicker;
+  }
+  //scree currentScreen;
+}
+
+}
+
+void activateAllButtons(int mX, int mY, int currentScreenNumber) {
+ if (currentScreenNumber == 1) {
+   homePageMasterList.changeToNewPage(mX,mY,2);
+   homePageLosers.changeToNewPage(mX,mY,4);
+   homePageWinners.changeToNewPage(mX,mY,3);
+   
+   homePageApple.changeToNewPot(mX,mY,5,"AAPL");
+   homePageTesla.changeToNewPot(mX,mY,5,"TSLA");
+   homePageIBM.changeToNewPot(mX,mY,5,"IBM");
+   homePageFord.changeToNewPot(mX,mY,5,"F");
+   homePageNetflix.changeToNewPot(mX,mY,5,"NFLX");
+ }
+ else if (currentScreenNumber == 2) {
+   masterPageHome.changeToNewPage(mX,mY,1);
+   masterPageWinners.changeToNewPage(mX,mY,3);
+   masterPageLosers.changeToNewPage(mX,mY,4); 
+   if (currentScreenNumber == 2) {
+     for (int i =0; i < masterListStockButtons.size(); i++) {
+       masterListStockButtons.get(i).changeToNewPot(mX,mY,5);
+     }
+   }
+ }
+ else if (currentScreenNumber == 3) {
+   gainerPageMasterList.changeToNewPage(mX,mY,2);
+   gainerPageHomePage.changeToNewPage(mX,mY,1);
+   gainerPageLosers.changeToNewPage(mX,mY,4);
+   for(int i=0; i<stockGainers.size(); i++) {
+     stockGainers.get(i).changeToNewPage(mX,mY,5);
+     if(screenNumber == 5) {
+       //break;
+     }
+   }
+ }
+ else if (currentScreenNumber == 4) {
+   loserPageMasterList.changeToNewPage(mX,mY,2);
+   loserPageHomePage.changeToNewPage(mX,mY,1);
+   loserPageWinners.changeToNewPage(mX,mY,3);
+   for(int i=0; i<stockLosers.size(); i++) {
+     stockLosers.get(i).changeToNewPage(mX,mY,5);
+     if(screenNumber == 5) {
+       //break;
+     }
+   }
+ }
+  //POT buttons are not clickable for some reason?
+ else if (currentScreenNumber == 5) {
+   System.out.println("Test 5");
+   potPageHomePage.changeToNewPage(mX,mY,1);
+   potPageMasterList.changeToNewPage(mX,mY,2);
+ }
+}

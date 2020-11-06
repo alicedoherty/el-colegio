@@ -1,0 +1,87 @@
+class Line {
+  String ticker;
+  float open_price;
+  float close_price;
+  float adjusted_close;
+  float low;
+  float high;
+  int volume;
+  String date; //check for Date type in processing
+
+  Line(String rawData) {
+    //program defensively for empty fields
+    String[] data = split(rawData, ",");
+    ticker = data[0];
+    open_price = Float.parseFloat(data[1]);
+    close_price = Float.parseFloat(data[2]);
+    adjusted_close = Float.parseFloat(data[3]);
+    low = Float.parseFloat(data[4]);
+    high = Float.parseFloat(data[5]);
+    volume = Integer.parseInt(data[6]);
+    date = data[7];
+  }
+
+  String getTicker() {
+    return ticker;
+  }
+
+  void setTicker(String ticker) {
+    this.ticker = ticker;
+  }
+
+  float getOpenPrice() {
+    return open_price;
+  }
+
+  void setOpenPrice(float open_price) {
+    this.open_price = open_price;
+  }
+
+  float getClosePrice() {
+    return close_price;
+  }
+
+  void setClosePrice(float close_price) {
+    this.close_price = close_price;
+  }
+
+  float getAdjustedClose() {
+    return adjusted_close;
+  }
+
+  void setAdjustedClose(float adjusted_close) {
+    this.adjusted_close = adjusted_close;
+  }
+
+  float getLow() {
+    return low;
+  }
+
+  void setLow(float low) {
+    this.low = low;
+  }
+
+  float getHigh() {
+    return high;
+  }
+
+  void setHigh(float high) {
+    this.high = high;
+  }
+
+  int getVolume() {
+    return volume;
+  }
+
+  void setVolume(int volume) {
+    this.volume = volume;
+  }
+
+  String getDate() {
+    return date;
+  }
+
+  void setDate(String date) {
+    this.date = date;
+  }
+}

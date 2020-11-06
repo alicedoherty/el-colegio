@@ -1,0 +1,16 @@
+class homePage extends Screen {
+  int screenNumber = 1;
+  int x;
+  int y; 
+  int event; 
+  int colorRed = 155;
+  int colorGreen = 175;
+  int colorBlue = 181;
+  
+  void drawShapes(){
+    rect(310, 395, 442, 105);
+}
+
+
+
+}

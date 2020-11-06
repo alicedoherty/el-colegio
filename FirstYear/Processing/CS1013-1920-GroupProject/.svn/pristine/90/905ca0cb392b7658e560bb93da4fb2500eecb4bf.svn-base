@@ -1,0 +1,56 @@
+final int SCREENX = 400;
+final int SCREENY = 400;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+ArrayList<Line> priceData;
+SimpleDateFormat dateFormat;
+
+void settings(){
+    size(SCREENX, SCREENY);
+  }
+void setup() {
+  PFont myFont = loadFont("Serif-14.vlw");
+  textFont(myFont);
+  fill(0);
+  background(255);
+  priceData = new ArrayList<Line>();
+  
+  readStockInfo("stocks.csv");
+  readPriceData("daily_prices1k.csv");
+  println("there are " + priceData.size() + " price points");
+  println(priceData.get(250).getTicker());
+  
+  
+}
+
+void draw() {
+  ArrayList<Line> test = queryPriceOverTime(priceData, "PEZ");
+  for (int i = 0 ; i < test.size(); i++) {
+    println(test.get(i).getDate());
+    noLoop();
+  }
+  
+}
+
+void mousePressed() {
+  
+}
+void readStockInfo(String fileName) {
+  String[] lines = loadStrings(fileName);
+  println("there are " + lines.length + " stocks");
+}
+
+
+void readPriceData(String fileName) {
+  String[] lines = loadStrings(fileName);
+  for (int i = 0 ; i < lines.length; i++) {
+    priceData.add(new Line(lines[i]));
+    //println(lines[i]);
+    //text(lines[i], 10, i*15);
+  }
+  println("there are " + lines.length + " lines");
+}

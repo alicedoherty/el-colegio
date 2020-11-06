@@ -1,0 +1,101 @@
+void drawHomePage(){
+  // background color
+  background(155, 175, 181);
+  drawHomeTitle();
+  drawMasterListBox();
+  drawLosersButtonHome();
+  drawGainersButtonHome();
+  drawLines();
+  drawCreatedBy();
+  drawFeaturedStocks();
+}
+void drawHomeTitle(){
+  // title
+  strokeWeight(5);
+  stroke(64);
+  fill(255);
+  rect(295, 65, 427, 75);
+  fill(0);
+  textFont(font1);
+  textSize(36);
+  text("HEDGEOVERFLOW", 350, 115);
+}
+void drawMasterListBox() {
+  // link to master list
+  strokeWeight(1);
+  stroke(255);
+  fill(137, 141, 50);
+  rect(295, 395, 427, 105);
+  fill(255);
+  textFont(font1);
+  textSize(36);
+  text("Discover More Stocks!", 320, 460);
+}
+
+void drawLosersButtonHome() {
+  // losers
+  strokeWeight(1);
+  stroke(255);
+  fill(235, 50, 34);
+  ellipse(335, 260, 175, 75);
+  fill(255);
+  textFont(font2);
+  textSize(18);
+  text("Lacklustre Losers", 261, 265);
+}
+
+void drawGainersButtonHome() {
+  // gainers
+  strokeWeight(1);
+  stroke(255);
+  fill(78, 172, 91);
+  ellipse(690, 260, 175, 75);
+  fill(255);
+  textSize(18);
+  text("Great Gainers", 632, 265);
+}
+
+void drawLines() {
+  // lines
+  stroke(235, 164, 65);
+  line(820, 0, 820,580);
+  
+  line(200, 0, 200,580);
+}
+
+void drawCreatedBy() {
+ // Created by
+  fill(255);
+  textSize(18);
+  text("Created by:", 45, 105);
+    // text
+    fill(0);
+    textSize(12);
+    text("Stephen Davis", 15, 165);
+    text("Alice Doherty", 15, 265);
+    text("Sean Gaffney", 15, 365);
+    text("Diarmuid McGonagle", 15, 465);  
+}
+
+void drawFeaturedStocks() {
+  // Featured Stocks
+  fill(255);
+  textSize(18);
+  text("Featured Stocks:", 858, 105);
+    // buttons
+    stroke(255);
+    fill(0);
+    ellipse(930, 160, 105, 50);
+    ellipse(930, 240, 105, 50);
+    ellipse(930, 320, 105, 50);
+    ellipse(930, 400, 105, 50);
+    ellipse(930, 480, 105, 50);
+    // text
+    fill(255);
+    textSize(18);
+    text("Apple", 905, 165);
+    text("Tesla", 907, 245);
+    text("IBM", 913, 327);
+    text("Ford", 909, 407);
+    text("Netflix", 903, 485);
+}

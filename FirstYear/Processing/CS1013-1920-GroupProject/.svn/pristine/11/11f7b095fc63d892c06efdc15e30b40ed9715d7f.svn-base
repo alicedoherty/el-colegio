@@ -1,0 +1,120 @@
+
+
+void drawMasterList(){
+  // background color
+  pushMatrix();
+  background(242,242,242);
+  
+  //scrollBar(mouseY);
+  float newYValue = scrollBar.scrollValue();  
+  translate (0, newYValue);
+  drawTitle();
+  drawStockNames();
+  drawOpenPrice();
+  drawClosePrice();
+  drawChangeOverTime();
+  popMatrix();
+}
+
+void drawTitle() {
+  // title
+  strokeWeight(5);
+  stroke(64);
+  fill(255);
+  rect(295, 35, 427, 75);
+  fill(0);
+  textFont(font1);
+  textSize(36);
+  text("LIST OF STOCKS", 360, 85);
+}
+void drawStockNames() {
+  // names of stonks
+  for (int i = 1; i < 20; i++) {
+    // use yPlace to choose where to put names of stonks
+    int yPlace = (i * 50) + 150;
+    strokeWeight(1);
+    stroke(255);
+    fill(137, 141, 50);
+    rect(50, yPlace, 200, 50);
+    fill(0);
+    textFont(font2);
+    textSize(18);
+    text("Apple", 120, yPlace + 30);
+  }
+}
+
+
+void drawOpenPrice() {
+    strokeWeight(1);
+    stroke(255);
+    fill(197,207,210);
+    rect(295, 145, 200, 50);
+    fill(255);
+    textFont(font2);
+    textSize(18);
+    text("Open Price", 345, 175);
+    // repetitve
+    for (int i = 1; i < 20; i++) {
+      // use yPlace to choose where to put names of stonks
+      int yPlace = (i * 50) + 150;
+      strokeWeight(1);
+      stroke(255);
+      fill(197,207,210);
+      rect(295, yPlace, 200, 50);
+      fill(255);
+      textFont(font2);
+      textSize(18);
+      text("Apple", 365, yPlace + 30);
+    }
+}
+
+void drawClosePrice() {
+  
+    strokeWeight(1);
+    stroke(255);
+    fill(197,207,210);
+    rect(495, 145, 200, 50);
+    fill(255);
+    textFont(font2);
+    textSize(18);
+    text("Close Price", 545, 175);
+    // repetitve
+    for (int i = 1; i < 20; i++) {
+      // use yPlace to choose where to put names of stonks
+      int yPlace = (i * 50) + 150;
+      strokeWeight(1);
+      stroke(255);
+      fill(197,207,210);
+      rect(495, yPlace, 200, 50);
+      fill(255);
+      textFont(font2);
+      textSize(18);
+      text("Apple", 565, yPlace + 30);
+    }
+}
+
+void drawChangeOverTime() {
+  // Open Price
+    strokeWeight(1);
+    stroke(255);
+    fill(197,207,210);
+    rect(695, 145, 200, 50);
+    fill(255);
+    textFont(font2);
+    textSize(18);
+    text("Change Over Time", 715, 175);
+    // repetitve
+    for (int i = 1; i < 20; i++) {
+      // use yPlace to choose where to put names of stonks
+      int yPlace = (i * 50) + 150;
+      strokeWeight(1);
+      stroke(255);
+      fill(197,207,210);
+      rect(695, yPlace, 200, 50);
+      fill(255);
+      textFont(font2);
+      textSize(18);
+      text("Apple", 765, yPlace + 30);
+    }
+  
+}

@@ -1,0 +1,19 @@
+class Stock {
+  String rawData;
+  String ticker;
+  float open_price;
+  float close_price;
+  float adjusted_close;
+  float low;
+  float high;
+  int volume;
+  String data;
+  
+  Stock(String rawData) {
+    this.rawData = rawData;
+  }
+  
+  
+  
+  
+}

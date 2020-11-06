@@ -1,0 +1,52 @@
+/* List of queries:
+- open price
+- close price
+- change over time
+- percentage change
+- price over time
+- stock by exchange
+*/
+ArrayList<Line> dataByTicker;
+ArrayList<Line> dataByHighestPercentage;
+ArrayList<Line> dataByLowestPercentage;
+ArrayList<Line> dataChangeOverTime;
+ArrayList<Line> dataPriceOverTime;
+
+
+// sorting by ticker
+ArrayList queryTicker(String ticker, ArrayList<Line> priceData) {
+    //Collections.sort(priceData);
+    //add sorting later
+    
+    dataByTicker = new ArrayList<Line>();
+    for (Line line:priceData) {
+      if(line.getTicker().equals(ticker)) {
+        dataByTicker.add(line);
+      }
+    }
+    return dataByTicker;
+}
+
+// highest/lowest percentage change
+ArrayList queryHighestPercentage(ArrayList<Line> priceData) {
+  
+  return dataByHighestPercentage;
+}
+
+ArrayList queryLowestPercentage(ArrayList<Line> priceData) {
+  return dataByLowestPercentage;
+}
+
+// change over time
+ArrayList queryChangeOverTime(ArrayList<Line> priceData, String ticker, String startDate, String endDate) {
+  return dataChangeOverTime;
+}
+
+// price over time
+ArrayList queryPriceOverTime(ArrayList<Line> priceData, String ticker)
+{
+  dataByTicker = queryTicker(ticker, priceData);
+  Collections.sort(dataByTicker);
+  dataPriceOverTime = dataByTicker;
+  return dataPriceOverTime;
+}

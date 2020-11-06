@@ -1,0 +1,74 @@
+//final int SCREEN_X = 600;
+//final int SCREEN_Y = 500;
+
+class LowestPercentageChange {
+
+String ticker = "APPL";
+float openPrice = 10;
+float closePrice = 30;
+float percentageChange = ((closePrice - openPrice) / openPrice) * 100;
+PFont myFont;
+int yPos = 100;      // yPosition of each line of data, i.e. each stock
+int stockY = 80;     // yPosition of each button around each stock
+color red = color(252,54,70); // red
+color cyan = color(54,247,252);    // cyan
+
+
+//void settings () {
+//  size(SCREEN_X, SCREEN_Y);  
+//}
+
+void setup() {
+  background(255);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  
+  
+}
+
+
+void draw() {
+  textFont(myFont);
+  fill(red);
+  
+  // Headings
+  text("Ticker",50,50);
+  text("Open Price",175,50);
+  text("Close Price",300,50);
+  text("Percentage Change",425,50);
+  
+  fill(255);
+  rect(40,80,75,25);    // creates button for stock
+  
+  fill(0);
+  text(""+ticker,50,100);
+  text(""+openPrice,175,100);
+  text(""+closePrice,300,100);
+  text(""+percentageChange,425,100);
+  
+  // define method with parameter of the array???
+  //   for(int i=0; i<array.length; i++) {
+  //     fill(255);
+  //     text(""+array[i].ticker,50,y);
+  //     text(""+array[i].openPrice,175,y);
+  //     text(""+array[i].closePrice,300,y);
+  //     text(""+array[i].percentageChange,425,y);    
+  //     y+=50;
+  //     fill(0);
+  //     rect(40,stockY,75,25);    // creates button for stocks
+  //     stockY+=50;
+  //   }
+  
+  // Below draws 3 buttons:
+  fill(cyan);
+  rect(30,(SCREEN_Y-51),150,50);      // homePage button
+  rect(230,(SCREEN_Y-51),150,50);     // masterList button
+  rect(420,(SCREEN_Y-51),150,50);     // lowest percentage change button
+  
+  // Below labels the 3 buttons:
+  fill(0);
+  text("Home Page",40,(SCREEN_Y-20));
+  text("Master List",240,(SCREEN_Y-20));
+  text("Highest Change",430,(SCREEN_Y-20));
+}
+}

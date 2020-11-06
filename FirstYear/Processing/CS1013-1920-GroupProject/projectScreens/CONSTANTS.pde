@@ -1,0 +1,14 @@
+final color CYAN = color(139,255,248);
+final int SCREEN_X = 1024;
+final int SCREEN_Y = 580;
+final float HEIGHTOFCANVAS = 1005;
+final color PINK = color(237,168,222); 
+final color YELLOW = color(245,252,54);    
+final color GREEN = color(54,252,124);      
+final color TAN = color(255,238,206);
+final color BLUE = color(129,255,252);
+final color RED = color(255,98,98);
+final color PURPLE = color(173,0,227);
+final color PALE = color(255,232,232);
+final color BABYPINK = color(252,199,199); // very light pink
+final color TEAL = color(169,232,223);

@@ -1,0 +1,16 @@
+class Stock {
+  String ticker;
+  String exchange;
+  String name;
+  String sector;
+  String industry;
+  
+  Stock(String ticker, String exchange, String name, String sector, 
+    String industry) {
+      this.ticker = ticker;
+      this.exchange = exchange;
+      this.name = name;
+      this.sector = sector;
+      this.industry = industry;
+  }
+}

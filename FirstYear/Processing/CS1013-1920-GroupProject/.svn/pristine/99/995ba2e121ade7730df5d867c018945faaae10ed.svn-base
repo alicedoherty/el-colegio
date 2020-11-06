@@ -1,0 +1,11 @@
+void scrollBar(int xPosition){
+
+  // actual scroller
+  strokeWeight(1);
+  stroke(64);
+  fill(0);
+  rect(1005, xPosition, 10, 20); 
+  
+  
+  
+}

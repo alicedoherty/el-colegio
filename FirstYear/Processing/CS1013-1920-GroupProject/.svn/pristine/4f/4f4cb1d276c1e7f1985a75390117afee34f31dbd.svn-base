@@ -1,0 +1,79 @@
+Widget gainerPageMasterList, gainerPageHomePage, gainerPageLosers;
+ArrayList<Widget> stockGainers;
+
+String ticker = "APPL";
+float openPrice = 10;
+float closePrice = 30;
+PFont myFont;
+int yPos = 100;      // yPosition of each line of data, i.e. each stock
+int stockY = 80;     // yPosition of each button around each stock
+color pink = color(237,168,222); // pink
+color yellow = color(245,252,54);    // yellow
+color green = color(54,252,124);      // green
+color tan = color(255,238,206);
+color blue = color(129,255,252);
+color red = color(255,98,98);
+color purple = color(173,0,227);
+int i=0;
+
+void drawGainers() {
+  background(tan);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  highestPercentageChanges = queryHighestPercentage();
+  drawGainerHeadings();
+  drawGainerButtons();
+  drawGainerLabels();
+  drawGainerData(highestPercentageChanges); 
+}
+
+void drawGainerHeadings() {
+  textFont(myFont);
+  fill(purple);  
+  // Headings
+  text("Highest Percentage Change",(SCREEN_X/2)-100,30);
+  text("Ticker",50,60);
+  text("Open Price",275,60);
+  text("Close Price",425,60);
+  text("Percentage Change",575,60);
+}
+
+void drawGainerButtons() {
+  fill(red);
+  rect((SCREEN_X-265),(SCREEN_Y-410),150,50);      // homePage button
+  gainerPageHomePage = new Widget((SCREEN_X-265),(SCREEN_Y-410),150,50, 3);
+  rect((SCREEN_X-265),(SCREEN_Y-260),150,50);     // masterList button
+  gainerPageMasterList = new Widget((SCREEN_X-265),(SCREEN_Y-260),150,50, 3);
+  rect((SCREEN_X-265),(SCREEN_Y-110),150,50);     // lowest percentage change button
+  gainerPageLosers = new Widget((SCREEN_X-265),(SCREEN_Y-110),150,50, 3);
+}
+
+void drawGainerLabels() {
+  // Below labels the 3 buttons:
+  fill(0);
+  text("Home Page",(SCREEN_X-250),(SCREEN_Y-380));
+  text("Master List",(SCREEN_X-250),(SCREEN_Y-230));
+  text("Lowest Change",(SCREEN_X-250),(SCREEN_Y-80));  
+}
+
+void drawGainerData(ArrayList<Line> highestPercentageChanges) {
+  yPos=100;
+  stockY=80;
+  stockGainers = new ArrayList<Widget>();
+       for(int i=0; i<highestPercentageChanges.size(); i++) {    
+       fill(blue);
+       rect(40,stockY,75,25);    // creates button for stocks
+       if(stockGainers.size()<10) {
+         Widget gainer = new Widget(40,stockY,75,25,4);
+         stockGainers.add(gainer);       
+       }
+       fill(0);
+       text(highestPercentageChanges.get(i).getTicker(),50,yPos);
+       text(""+highestPercentageChanges.get(i).getOpenPrice(),275,yPos);
+       text(""+highestPercentageChanges.get(i).getClosePrice(),425,yPos);
+       text(""+highestPercentageChanges.get(i).getPercentageChange(),575,yPos);    
+       yPos+=50;
+       stockY+=50;
+       System.out.println(stockGainers.size());
+     }   
+}

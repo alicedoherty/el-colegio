@@ -1,0 +1,80 @@
+Widget gainerPageMasterList, gainerPageHomePage, gainerPageLosers;
+
+int[] array;
+
+//LowestPercentageChange lowestScreen;    // just to check if LowestChangeScreen works
+String ticker = "APPL";
+float openPrice = 10;
+float closePrice = 30;
+float percentageChange = ((closePrice - openPrice) / openPrice) * 100;
+PFont myFont;
+int yPos = 100;      // yPosition of each line of data, i.e. each stock
+int stockY = 80;     // yPosition of each button around each stock
+color pink = color(237,168,222); // pink
+color yellow = color(245,252,54);    // yellow
+color green = color(54,252,124);      // green
+// boolean drawHighestScreen = false;    // just to test if LowestChangeScreen works
+int i=0;
+
+
+void drawGainers() {
+  background(255);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  //lowestScreen = new LowestPercentageChange();  // just to check if LowestChangeScreen works 
+  array = new int[10];
+  drawGainerHeadings();
+  drawGainerButtons();
+  drawGainerLabels();
+  String testLabel = "a";
+  yPos=100;
+  stockY=80;
+  testLabel="a";
+  openPrice=10;
+  closePrice=30;
+  percentageChange=((closePrice-openPrice)/openPrice)*100;
+      for(int i=0; i<array.length; i++) {    // this loop keeps repeating itself for some reason???
+       fill(green);
+       rect(40,stockY,75,25);    // creates button for stocks
+       fill(0);
+       text(testLabel,50,yPos);
+       text(""+openPrice,275,yPos);
+       text(""+closePrice,425,yPos);
+       text(""+percentageChange,575,yPos);    
+       yPos+=50;
+       stockY+=50;
+       testLabel+=",a";
+       openPrice+=10;
+       closePrice+=5;
+       percentageChange+=15;
+     }  
+}
+void drawGainerHeadings() {
+  textFont(myFont);
+  fill(pink);
+  
+  // Headings
+  text("Highest Percentage Change",(SCREEN_X/2)-100,30);
+  text("Ticker",50,60);
+  text("Open Price",275,60);
+  text("Close Price",425,60);
+  text("Percentage Change",575,60);
+}
+
+void drawGainerButtons() {
+  fill(yellow);
+  rect((SCREEN_X-265),(SCREEN_Y-410),150,50);      // homePage button
+  gainerPageHomePage = new Widget((SCREEN_X-265),(SCREEN_Y-410),150,50, 3);
+  rect((SCREEN_X-265),(SCREEN_Y-260),150,50);     // masterList button
+  gainerPageMasterList = new Widget((SCREEN_X-265),(SCREEN_Y-260),150,50, 3);
+  rect((SCREEN_X-265),(SCREEN_Y-110),150,50);     // lowest percentage change button
+  gainerPageLosers = new Widget((SCREEN_X-265),(SCREEN_Y-110),150,50, 3);
+}
+
+void drawGainerLabels() {
+// Below labels the 3 buttons:
+  fill(0);
+  text("Home Page",(SCREEN_X-250),(SCREEN_Y-380));
+  text("Master List",(SCREEN_X-250),(SCREEN_Y-230));
+  text("Lowest Change",(SCREEN_X-250),(SCREEN_Y-80));  
+}

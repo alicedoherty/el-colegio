@@ -1,0 +1,2 @@
+int SCREENX = 800;
+int SCREENY = 500;

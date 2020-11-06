@@ -1,0 +1,65 @@
+final int SCREEN_X = 1024;
+final int SCREEN_Y = 580;
+
+float openPrice = 10;
+float closePrice = 30;
+PFont myFont;
+int yPos = 100;      // yPosition of each line of data, i.e. each stock
+int originXPos=100;
+int originYPos=SCREEN_Y-100;
+int x2=SCREEN_X-150;
+int y2=50;
+color pink = color(237,168,222); // pink
+color babyPink = color(252,199,199); // very light pink
+
+int[] array;
+
+void settings () {
+  size(SCREEN_X, SCREEN_Y);  
+}
+
+void setup() {
+  background(255);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  array = new int[]{50,110,210,160,35,90,12,100,158,60,150,26,0,35,389};
+}
+
+
+void draw() {
+  background(babyPink);
+  int x = originXPos;
+  int y = originYPos;
+  line(originXPos,originYPos,originXPos,y2);  // top of y axis, origin
+  stroke(0);
+  line(originXPos,originYPos,x2,originYPos);        // origin, end of x-axis
+  stroke(0);   
+     for(int i=0; i<array.length-1; i++) {
+       int j =i+1;
+       line(x,(originYPos-(array[i])),x+50,(originYPos-array[j]));
+       stroke(0);   // this colours the line.
+       x+=50;
+     }
+  
+  //for(int i=0; i<closePriceArray.length-1; i++) {
+    //   int j =i+1;
+    //   line(x,((SCREEN_Y-closePriceArray[i])),x+50,(SCREEN_Y-closePriceArray[j]));
+    //   stroke(0);   // this colours the line.
+    //   x+=50;
+    // }
+  
+  textFont(myFont);
+  // Below draws 2 buttons:
+  fill(pink);
+  rect((x2+10),(SCREEN_Y/2),130,50);      // homePage button
+  rect((x2+10),((SCREEN_Y/2)+55),130,50);     // masterList button
+  
+  // Below labels the 2 buttons:
+  fill(0);
+  text("Home Page",(x2+25),(SCREEN_Y/2+35));
+  text("Master List",(x2+25),((SCREEN_Y/2)+35)+50);
+  text("Price Over Time (POT)",(SCREEN_X/2)-100,30);  // title of graph
+  text("Price",5,(SCREEN_Y/2));    // y-axis label
+  text("($)",10,(SCREEN_Y/2)+25);
+  text("Year",((SCREEN_X/2)-100),(SCREEN_Y)-10);  // x-axis label
+}

@@ -1,0 +1,65 @@
+Widget loserPageMasterList, loserPageHomePage, loserPageWinners;
+ArrayList<Widget> stockLosers;
+
+color pale = color(255,232,232);
+
+void drawBiggestLosers() {
+  background(pale);
+  myFont = createFont("NSimSun",20,true);
+  frameRate(80);
+  lowestPercentageChanges = queryLowestPercentage();
+  drawLoserHeadings();
+  drawLoserButtons();
+  drawLoserLabels();
+  drawLoserData(lowestPercentageChanges);
+}
+
+void drawLoserHeadings() {
+  textFont(myFont);
+  fill(purple);  
+  // Headings
+  text("Lowest Percentage Change",(SCREEN_X/2)-100,30);
+  text("Ticker",50,60);
+  text("Open Price",275,60);
+  text("Close Price",425,60);
+  text("Percentage Change",575,60);
+}
+
+void drawLoserButtons() {
+  fill(blue);
+  rect((SCREEN_X-265),(SCREEN_Y-410),150,50);      // homePage button
+  loserPageHomePage = new Widget((SCREEN_X-265),(SCREEN_Y-410),150,50, 4);
+  rect((SCREEN_X-265),(SCREEN_Y-260),150,50);     // masterList button
+  loserPageMasterList = new Widget((SCREEN_X-265),(SCREEN_Y-260),150,50, 4);
+  rect((SCREEN_X-265),(SCREEN_Y-110),150,50);     // lowest percentage change button
+  loserPageWinners = new Widget((SCREEN_X-265),(SCREEN_Y-110),150,50, 4);
+}
+
+void drawLoserLabels() {
+  // Below labels the 3 buttons:
+  fill(0);
+  text("Home Page",(SCREEN_X-250),(SCREEN_Y-380));
+  text("Master List",(SCREEN_X-250),(SCREEN_Y-230));
+  text("Highest Change",(SCREEN_X-250),(SCREEN_Y-80));  
+}
+
+void drawLoserData(ArrayList<Line> lowestPercentageChanges) {
+  yPos=100;
+  stockY=80;
+       stockLosers = new ArrayList<Widget>();
+       for(int i=0; i<lowestPercentageChanges.size(); i++) {    
+       fill(green);
+       rect(40,stockY,75,25);    // creates button for stocks
+       if(stockLosers.size()<10) {
+         Widget loser = new Widget(40,stockY,75,25,4,lowestPercentageChanges.get(i).getTicker());
+         stockLosers.add(loser);       
+       }
+       fill(0);
+       text(lowestPercentageChanges.get(i).getTicker(),50,yPos);
+       text(""+lowestPercentageChanges.get(i).getOpenPrice(),275,yPos);
+       text(""+lowestPercentageChanges.get(i).getClosePrice(),425,yPos);
+       text(""+lowestPercentageChanges.get(i).getPercentageChange(),575,yPos);    
+       yPos+=50;
+       stockY+=50;
+     }   
+}

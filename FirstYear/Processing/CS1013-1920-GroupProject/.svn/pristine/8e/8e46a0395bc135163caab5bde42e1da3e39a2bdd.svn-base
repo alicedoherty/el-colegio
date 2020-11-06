@@ -1,0 +1,35 @@
+final int WIDTH = 1024; 
+final int HEIGHT = 580; 
+PFont font1;
+PFont font2;
+
+int screenNumber = 1;
+
+void setup() {
+  size(1024,580);
+  font1 = createFont("GillSans-36.vlw",36);
+  font2 = createFont("GillSans-18.vlw",18);
+  
+}
+
+void draw() {
+  switch(screenNumber) {
+    case 1:
+      drawHomePage();
+      break;
+    case 2:
+      drawMasterList();
+      break;
+    case 3:
+      drawGainers();
+      break;
+    case 4:
+      drawBiggestLosers();
+      break;
+    case 5:
+      drawPOT();
+      break;
+    default:
+      drawHomePage();
+  }
+}

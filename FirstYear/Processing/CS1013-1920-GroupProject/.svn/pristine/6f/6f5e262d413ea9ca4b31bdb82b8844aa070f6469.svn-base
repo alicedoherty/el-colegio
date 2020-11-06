@@ -1,0 +1,34 @@
+void settings(){
+    size(SCREENX, SCREENY);
+  }
+void setup() {
+  PFont myFont = loadFont("Serif-14.vlw");
+  textFont(myFont);
+  fill(0);
+  background(255);
+  
+  //readFile("stocks.csv");
+  readFile("daily_prices1k.csv");
+  
+}
+
+void draw() {
+  
+  
+  
+}
+
+void mousePressed() {
+  
+}
+
+void readFile(String fileName) {
+  File newFile = new File();
+  String[] lines = loadStrings(fileName);
+  for (int i = 0 ; i < lines.length; i++) {
+    newFile.addStock(lines[i]);
+    println(lines[i]);
+    text(lines[i], 10, i*15);
+  }
+  println("there are " + lines.length + " lines");
+}

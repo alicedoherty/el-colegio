@@ -1,0 +1,41 @@
+class Screen {
+  int screenNumber;
+  int x;
+  int y; 
+  private final static int WIDTH = 1024; 
+  private final static int HEIGHT = 580; 
+  int event; 
+  int colorRed;
+  int colorGreen;
+  int colorBlue;
+  
+  Screen() {
+    
+  }
+  
+void drawShapes(){
+  
+}
+//  int getEvent(int mX, int mY){
+//  if(mX>x && mX < x+width && mY >y && mY <y+height)
+//  { 
+//    return event;
+//  }
+//  return EVENT_NULL; 
+//}
+
+void draw() {
+  background(colorRed, colorGreen, colorBlue);
+  size(width, height);
+  drawShapes();
+  //for(int i = 0; i < widgetList.size(); i++) {
+  //   widgetList.get(i).draw();
+  //}
+}
+  
+  
+  
+  
+  
+  
+}

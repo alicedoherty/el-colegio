@@ -1,0 +1,13 @@
+/* List of queries:
+- open price
+- close price
+- change over time
+- percentage change
+- price over time
+- stock by exchange
+*/
+ //get open price
+ float queryTest() {
+   float testValue = RAVN.test.getOpenPrice();
+   return testValue;
+ }

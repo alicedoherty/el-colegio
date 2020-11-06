@@ -1,0 +1,15 @@
+class File {
+  ArrayList<Stock> stocks;
+  File() {
+    stocks = new ArrayList();
+  }
+  void addStock(String newline) {
+    Stock newStock = new Stock(newline);
+    stocks.add(newStock);
+  }
+  void getStock() {
+    
+  }
+  
+  
+}

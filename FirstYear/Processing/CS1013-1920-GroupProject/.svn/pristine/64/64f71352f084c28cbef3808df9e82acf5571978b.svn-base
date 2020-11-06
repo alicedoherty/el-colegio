@@ -1,0 +1,12 @@
+Stock RAVN;
+Line test;
+
+void setup() {
+  Stock RAVN = new Stock("RAVN", "NASDAQ", "RAVEN INDUSTRIES, INC.", 
+    "CAPITAL GOODS", "SPECIALTY CHEMICALS");
+
+}
+
+void draw() {
+  System.out.print(queryTest());
+}
