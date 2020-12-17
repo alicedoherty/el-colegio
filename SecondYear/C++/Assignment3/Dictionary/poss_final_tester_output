@@ -1,0 +1,19 @@
+there was an entry with no /
+translist trans of maison is house
+translist trans of chien is dog
+no translist trans of garcon
+------------
+translist2 trans of garcon is boy
+translist2 trans of sante is health
+no translist2 trans of maison
+------------
+translist trans of house is maison
+no translist trans of hat
+------------
+testing d1 after adding chapeau/hat
+translist trans of house is maison
+translist trans of hat is chapeau
+------------
+test d1 after adding maison/flat
+translist trans of maison is flat
+------------

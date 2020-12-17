@@ -1,0 +1,26 @@
+
+
+It also contains a far-too-simple show method.
+
+The code can be compiled though with
+
+ g++ Rule.cpp rule_tester.cpp -o myprog
+
+where tester.cpp causes a Rule to be made, and causes its show() method to be run. It does not
+really do anything with the string that is passed to the constructor, with exactly that being
+just displayed. 
+
+The exercise in the notes relating to this requires
+
+ o the Rule class to have members for the mother and daughter parts of a rule,
+
+ o the constructor to be correspondingly more complex, containing the
+   same kind of string and vector that was in the 'rule_parsing.cpp'
+   code discussed in 'Example using string and vector.
+
+ o the show method also to refer to separate mother and daugther parts of the Rule object
+
+The exercise also requires the implementation of Grammar class using Rule appropriately.
+
+Grammar.h and Grammar.cpp give a minimal start in the direction of that.
+
