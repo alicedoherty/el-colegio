@@ -1,3 +1,16 @@
+/**
+ * Average running time (in milliseconds) of 3 calls to the sorting algorithms
+ * 
+ * 						| Insertion	| Selection	| Quick		| Merge		|
+ * 1000 Random			| 17.93ms	| 6.46ms	| 0.66ms	| 0.96ms	|
+ * 1000 Few Unique		| 16.29ms	| 5.72ms	| 0.68ms	| 0.98ms	|
+ * 1000 Nearly Ordered	| 21.74ms	| 5.26ms	| 1.13ms	| 1.23ms	|
+ * 1000 Reverse Order	| 21.05ms	| 5.08ms	| 4.85ms	| 0.92ms	|
+ * 1000 Sorted			| 17.21ms	| 5.14ms	| 5.60ms	| 0.86ms	|
+ * 10000 Random			| 73.22ms 	| 44.24ms	| 2.21ms	| 2.99ms	|
+ * 
+ */
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
@@ -72,6 +85,7 @@ public class SortComparisonTest
     	assertEquals("Checking insertionSort with random array", sortedArray, Arrays.toString(SortComparison.insertionSort(randomArray)));
     	
     	// Test with ordered array
+    	
     	double[] orderedArray = {1518.63, 1522.08, 1735.31, 1934.75, 2377.88, 2910.66, 4849.83, 5855.37, 8106.23, 8458.14};
     	
     	assertEquals("Checking insertionSort with ordered array", sortedArray, Arrays.toString(SortComparison.insertionSort(orderedArray)));
@@ -110,6 +124,7 @@ public class SortComparisonTest
     	assertEquals("Checking selectionSort with random array", sortedArray, Arrays.toString(SortComparison.selectionSort(randomArray)));
     	
     	// Test with ordered array
+    	
     	double[] orderedArray = {1518.63, 1522.08, 1735.31, 1934.75, 2377.88, 2910.66, 4849.83, 5855.37, 8106.23, 8458.14};
     	
     	assertEquals("Checking selectionSort with ordered array", sortedArray, Arrays.toString(SortComparison.selectionSort(orderedArray)));
@@ -145,8 +160,9 @@ public class SortComparisonTest
     			};
     	
     	assertEquals("Checking quickSort with random array", sortedArray, Arrays.toString(SortComparison.quickSort(randomArray)));
-    	
+    		
     	// Test with ordered array
+    	
     	double[] orderedArray = {1518.63, 1522.08, 1735.31, 1934.75, 2377.88, 2910.66, 4849.83, 5855.37, 8106.23, 8458.14};
     	
     	assertEquals("Checking quickSort with ordered array", sortedArray, Arrays.toString(SortComparison.quickSort(orderedArray)));
@@ -184,6 +200,7 @@ public class SortComparisonTest
     	assertEquals("Checking mergeSort with random array", sortedArray, Arrays.toString(SortComparison.mergeSort(randomArray)));
     	
     	// Test with ordered array
+    	
     	double[] orderedArray = {1518.63, 1522.08, 1735.31, 1934.75, 2377.88, 2910.66, 4849.83, 5855.37, 8106.23, 8458.14};
     	
     	assertEquals("Checking mergeSort with ordered array", sortedArray, Arrays.toString(SortComparison.mergeSort(orderedArray)));
@@ -195,12 +212,60 @@ public class SortComparisonTest
      *  Use this main method to create the experiments needed to answer the experimental performance questions of this assignment.
      *
      */
-    public static void main(String[] args)
-    {
-        //TODO: implement this method
-    	
-    	// reset array each time
-    }
-
+    
+//    public static void main(String[] args)
+//    {
+//    	double startTime;
+//    	double endTime;
+//    	double timeElapsed;
+//    	double[] originalArray;
+//    	double[] array;
+//    	
+//    	// Change .txt input file depending on which one you want to test
+//    	
+//    	In in = new In("numbers10000.txt");
+//		originalArray = in.readAllDoubles();
+//		
+//		// insertionSort()
+//		array = copy(originalArray);
+//		startTime = System.nanoTime();
+//		SortComparison.insertionSort(array);
+//		endTime = System.nanoTime();
+//		timeElapsed = endTime - startTime;
+//		System.out.println("Insertion sort time taken: " + timeElapsed / 1000000);
+//		
+//		// selectionSort()
+//		array = copy(originalArray);
+//		startTime = System.nanoTime();
+//		SortComparison.selectionSort(array);
+//		endTime = System.nanoTime();
+//		timeElapsed = endTime - startTime;
+//		System.out.println("Selection sort time taken: " + timeElapsed / 1000000);
+//		
+//		
+//		// quickSort()
+//		array = copy(originalArray);
+//		startTime = System.nanoTime();
+//		SortComparison.quickSort(array);
+//		endTime = System.nanoTime();
+//		timeElapsed = endTime - startTime;
+//		System.out.println("Quicksort time taken: " + timeElapsed / 1000000);
+//		
+//		// mergeSort()
+//		array = copy(originalArray);
+//		startTime = System.nanoTime();
+//		SortComparison.mergeSort(array);
+//		endTime = System.nanoTime();
+//		timeElapsed = endTime - startTime;
+//		System.out.println("Mergesort time taken: " + timeElapsed / 1000000);
+//    }
+//    
+//	private static double[] copy(double[] array) {
+//		double[] copyArray = new double[array.length];
+//		
+//		for(int i = 0; i < array.length; i++) {
+//			copyArray[i] = array[i];
+//		}
+//		return copyArray;
+//	}
 }
-
