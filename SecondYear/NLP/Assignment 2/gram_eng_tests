@@ -1,0 +1,29 @@
+A kissed B
+
+*A kissed saw B
+% (too many verbs)
+
+three people kissed B
+
+*kissed B
+% (no subject)
+
+the person that kissed B saw A
+
+the person that A kissed saw B
+
+*the person that A kissed B saw A
+% (too many names in the relative clause)
+
+
+%extra tests
+
+the man that A who kissed B saw told three people
+
+*the man that A who kissed B saw A
+
+the person that A kissed who the people saw told the man
+
+the person who A saw saw three people who A kissed
+
+*the man that B kissed saw

@@ -1,0 +1,32 @@
+s --> np,vp
+
+np --> det,n
+np --> n
+
+%object relative clauses
+np --> np,rel,np,tv
+
+%subject relative clauses
+np --> np,rel,vp
+
+vp --> tv, np
+
+
+det --> [the]
+det --> [a]
+det --> [three]
+
+n --> [A]
+n --> [B]
+n --> [people]
+n --> [person]
+n --> [man]
+
+tv --> [kissed]
+tv --> [saw]
+tv --> [told]
+
+rel --> [that]
+rel --> [who]
+
+initial(s)
