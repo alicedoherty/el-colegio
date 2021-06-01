@@ -1,0 +1,18 @@
+Amélie a embrassé Bernard
+% (Amélie kissed Bernard)
+
+trois personnes ont embrassé Bernard
+% (three people kissed Bernard)
+
+la personne qui a embrassé Bernard a vu Camille
+% (the person who kissed Bernard saw Camille)
+
+*la personne qui a Bernard embrassé a vu Camille
+% (wrong word order for subject rel)
+
+la personne que Amélie a embrassé a vu Camille
+% (the person who Amélie kissed saw Camille)
+
+*la personne que a embrassé Amélie a vu Camille
+% (wrong word order for object rel)
+

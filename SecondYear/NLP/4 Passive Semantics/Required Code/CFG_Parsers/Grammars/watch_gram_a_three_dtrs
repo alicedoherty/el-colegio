@@ -1,0 +1,9 @@
+vp --> v1,np
+v1 --> [find]
+vp --> v2,np
+vp --> v2,np,vp
+v2 --> [watch]
+np --> [him]
+np --> [her]
+
+initial(vp)

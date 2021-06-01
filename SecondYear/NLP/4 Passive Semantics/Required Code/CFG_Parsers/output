@@ -1,0 +1,118 @@
+0:s --> np,vp
+1:np --> det,n
+2:np --> n
+3:np --> np,rel,np,tv
+4:np --> np,rel,vp
+5:vp --> tv,np
+6:det --> [the]
+7:det --> [a]
+8:det --> [three]
+9:n --> [A]
+10:n --> [B]
+11:n --> [people]
+12:n --> [person]
+13:tv --> [kissed]
+14:tv --> [saw]
+15:rel --> [that]
+initial is s
+*************************************
+pos test 0 A kissed B
+s
+|___np
+|   |___n
+|       |___[A]
+|   
+|___vp
+    |___tv
+    |   |___[kissed]
+    |   
+    |___np
+        |___n
+            |___[B]
+YEP pos
+*************************************
+neg test 1 A kissed saw B
+YEP neg
+*************************************
+pos test 2 three people kissed B
+s
+|___np
+|   |___det
+|   |   |___[three]
+|   |   
+|   |___n
+|       |___[people]
+|   
+|___vp
+    |___tv
+    |   |___[kissed]
+    |   
+    |___np
+        |___n
+            |___[B]
+YEP pos
+*************************************
+neg test 3 kissed B
+YEP neg
+*************************************
+pos test 4 the person that kissed B saw A
+s
+|___np
+|   |___np
+|   |   |___det
+|   |   |   |___[the]
+|   |   |   
+|   |   |___n
+|   |       |___[person]
+|   |   
+|   |___rel
+|   |   |___[that]
+|   |   
+|   |___vp
+|       |___tv
+|       |   |___[kissed]
+|       |   
+|       |___np
+|           |___n
+|               |___[B]
+|   
+|___vp
+    |___tv
+    |   |___[saw]
+    |   
+    |___np
+        |___n
+            |___[A]
+YEP pos
+*************************************
+pos test 5 the person that A kissed saw B
+s
+|___np
+|   |___np
+|   |   |___det
+|   |   |   |___[the]
+|   |   |   
+|   |   |___n
+|   |       |___[person]
+|   |   
+|   |___rel
+|   |   |___[that]
+|   |   
+|   |___np
+|   |   |___n
+|   |       |___[A]
+|   |   
+|   |___tv
+|       |___[kissed]
+|   
+|___vp
+    |___tv
+    |   |___[saw]
+    |   
+    |___np
+        |___n
+            |___[B]
+YEP pos
+*************************************
+neg test 6 the person that A kissed B saw A
+YEP neg

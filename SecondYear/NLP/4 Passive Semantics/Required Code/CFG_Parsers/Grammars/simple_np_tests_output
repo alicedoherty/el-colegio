@@ -1,0 +1,51 @@
+0:np --> det,n
+1:n --> [flight]
+2:n --> [morning]
+3:det --> [a]
+4:det --> [the]
+initial is np
+*************************************
+pos test 0 the flight
+np
+|___det
+|   |___[the]
+|   
+|___n
+    |___[flight]
+YEP pos
+*************************************
+pos test 1 the morning
+np
+|___det
+|   |___[the]
+|   
+|___n
+    |___[morning]
+YEP pos
+*************************************
+pos test 2 a flight
+np
+|___det
+|   |___[a]
+|   
+|___n
+    |___[flight]
+YEP pos
+*************************************
+pos test 3 a morning
+np
+|___det
+|   |___[a]
+|   
+|___n
+    |___[morning]
+YEP pos
+*************************************
+neg test 4 flight
+YEP neg
+*************************************
+neg test 5 flight flight
+YEP neg
+*************************************
+neg test 6 a a flight
+YEP neg

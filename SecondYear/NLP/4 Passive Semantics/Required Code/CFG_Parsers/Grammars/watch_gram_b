@@ -1,0 +1,15 @@
+vp --> v1,np
+v1 --> [find]
+vp --> v2,np
+vp --> v2,np-vp
+np-vp --> np,vp
+v2 --> [watch]
+np --> [him]
+np --> [her]
+np --> det,n
+det --> [her]
+n --> [lunch]
+n --> [watch]
+
+initial(vp)
+

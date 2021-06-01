@@ -1,0 +1,23 @@
+Abby küsste Boris
+% (Abby kissed Boris)
+
+*Abby küsste sah Boris
+% (too many verbs)
+
+drei Menschen küssten Boris
+% (three people kissed Boris)
+
+*küssten Boris
+% (no subject) 
+
+der Mensch der Boris küsste sah Claudia
+% (the person who kissed Boris saw Claudia)
+
+*der Mensch der küsste Boris sah Claudia
+% (wrong word order in rel clause)
+
+der Mensch den Abby küsste sah Claudia
+% (the person who Abby kissed saw Claudia)
+
+*der Mensch den Abby Boris küsste sah Claudia
+% (too many names in the rel clause)

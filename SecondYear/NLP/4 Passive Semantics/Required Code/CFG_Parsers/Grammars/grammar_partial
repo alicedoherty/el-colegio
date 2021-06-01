@@ -1,0 +1,12 @@
+s --> np,vp
+vp --> dtv,np,[to],np
+np --> det,n
+n --> [man]
+det --> [the]
+dtv --> [gave]
+np --> [him]
+np --> [it]
+
+initial(s)
+
+
